@@ -1,0 +1,79 @@
+package bankingSystem.bankingCalculator;
+import java.util.Random;   
+ 
+public class BankAccount
+{
+    public String accountHolderName;
+    public int accountNumber;
+    public AccountType accountType;
+    public double balanceAmount;
+    public static final float interestRate =  2.45f;
+    
+    public BankAccount() {
+		// TODO Auto-generated constructor stub
+	}
+    
+    public BankAccount(String accountHolderName, String accountType,double balanceAmount) {
+		super();
+		this.accountHolderName = accountHolderName;
+		this.balanceAmount = balanceAmount;
+		try {
+			this.accountType = AccountType.valueOf(accountType);
+		} catch (Exception e) {
+			System.out.println("Entered wrong account type");
+			System.exit(0);
+		}
+        this.accountNumber=new Random().nextInt(1000000);
+        System.out.println("Your new account number is: "+accountNumber);
+	}
+    
+    public void depositAmount(double amount)
+    {
+        if(accountNumber==0)
+            System.out.println("! SYou don't have bank account to deposit\nNote:please assign values to create an account");
+        else
+        {
+            balanceAmount+=amount;
+            System.out.println("Amount deposited successfully...");
+        }
+    }
+    public void withdrawAmount(double amount)
+    {
+        if(accountNumber==0)
+            System.out.println("!You don't have bank account to credit\nNote:please assign values to create an account");
+        else if(balanceAmount>=amount)
+        {
+        	double checkAmount=balanceAmount-amount;
+        	if(checkAmount>=5000) {
+        		balanceAmount-=amount;
+        		System.out.println("Amount withdrawed successfully...:"+amount);
+        	}else {
+        		System.out.println("Amount not withdrawed..."+"minimum balance should be INR 5000 ");
+        	}
+            
+        }
+        else
+            System.out.println("! Insufficient balance");
+    }
+    public void displayDetails()
+    {
+        if(accountNumber==0)
+            System.out.println("!You don't have bank account\nNote:please assign values to create an account");
+        else
+        {
+            System.out.println("Name of the Depositor: "+accountHolderName);
+            System.out.println("Balance amount in the account: "+balanceAmount);
+        }
+    }
+    public void getInput()
+    {
+        System.out.println("How can i help you?");
+        System.out.println("1. Open account");
+        System.out.println("2. Deposit amount");
+        System.out.println("3. Withdraw amount");
+        System.out.println("4. Account details");
+        System.out.println("5. Exit");
+        System.out.print("Please choose from above (Eg.2): ");
+    }
+}
+
