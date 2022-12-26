@@ -10,7 +10,7 @@ public class BankAccount
     public static final float interestRate =  2.45f;
     
     public BankAccount() {
-		// TODO Auto-generated constructor stub
+		// TODO Auto-\generated constructor stub
 	}
     
     public BankAccount(String accountHolderName, String accountType,double balanceAmount) {
@@ -67,7 +67,7 @@ public class BankAccount
     }
     public void getInput()
     {
-        System.out.println("How can i help you ?");
+        System.out.println("How can i help you?");
         System.out.println("1. Open account");
         System.out.println("2. Deposit amount");
         System.out.println("3. Withdraw amount");
