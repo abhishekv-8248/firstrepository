@@ -67,7 +67,7 @@ public class BankAccount
     }
     public void getInput()
     {
-        System.out.println("How can i help you?");
+        System.out.println("How can i help you ?");
         System.out.println("1. Open account");
         System.out.println("2. Deposit amount");
         System.out.println("3. Withdraw amount");
